@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { authService } from "../services/auth.service";
 import { toast } from "react-toastify";
@@ -38,7 +38,7 @@ export const Login: React.FC = () => {
               <div className="text-sm text-red-700">{error}</div>
             </div>
           )}
-          <div className="rounded-md shadow-sm -space-y-px">
+          <div className="space-y-2">
             <div>
               <input
                 type="email"
@@ -49,8 +49,6 @@ export const Login: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-          </div>
-          <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <input
                 type="password"
@@ -61,15 +59,24 @@ export const Login: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-          </div>
-
-          <div>
+            <div className="flex justify-end">
+              <Link
+                to="/register"
+                className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
+              >
+                Register
+              </Link>
+            </div>
+            <div>
+            
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Sign in
             </button>
+            
+          </div>
           </div>
         </form>
       </div>
