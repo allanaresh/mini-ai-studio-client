@@ -2,8 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App Component', () => {
+  it('renders login page by default', () => {
+    render(<App />);
+    
+    expect(screen.getByText('Sign in to your account')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/email address/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument();
+  });
 });
